@@ -1,8 +1,6 @@
 package com.tuandai.tava;
 
 import com.tuandai.tava.annotation.NonEmpty;
-import sun.misc.BASE64Decoder;
-import sun.misc.BASE64Encoder;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -47,14 +45,10 @@ public class MainTest {
 	@SuppressWarnings("restriction")
 	public static void test4() throws IOException {
 		String str = "this is a test string with !~ 中文 ******";
-		BASE64Encoder encoder = new BASE64Encoder();
-		BASE64Decoder decoder = new BASE64Decoder();
 		Encoder en = Base64.getEncoder();
 		Decoder de = Base64.getDecoder();
-		String msg1 = encoder.encode(str.getBytes(StandardCharsets.UTF_8)), s1 = new String(decoder.decodeBuffer(msg1), StandardCharsets.UTF_8);
-		String msg2 = en.encodeToString(str.getBytes(StandardCharsets.UTF_8)), s2 = new String(de.decode(msg2), StandardCharsets.UTF_8);
-		System.out.println("msg1: " + msg1 + "   s1: " + s1);
-		System.out.println("msg2: " + msg2 + "   s1: " + s2);
+		String msg = en.encodeToString(str.getBytes(StandardCharsets.UTF_8)), data = new String(de.decode(msg), StandardCharsets.UTF_8);
+		System.out.println("msg: " + msg + "   str: " + data);
 	}
 
 	public static void main(String[] args) {
