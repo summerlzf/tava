@@ -2,6 +2,8 @@ package com.tuandai.tava;
 
 import com.tuandai.tava.annotation.NonEmpty;
 
+import java.io.File;
+import java.io.FileFilter;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
@@ -42,13 +44,19 @@ public class MainTest {
 		System.out.println(map);
 	}
 	
-	@SuppressWarnings("restriction")
 	public static void test4() throws IOException {
 		String str = "this is a test string with !~ 中文 ******";
 		Encoder en = Base64.getEncoder();
 		Decoder de = Base64.getDecoder();
 		String msg = en.encodeToString(str.getBytes(StandardCharsets.UTF_8)), data = new String(de.decode(msg), StandardCharsets.UTF_8);
 		System.out.println("msg: " + msg + "   str: " + data);
+		File f = new File("");
+		f.listFiles(new FileFilter() {
+			@Override
+			public boolean accept(File pathname) {
+				return false;
+			}
+		});
 	}
 
 	public static void main(String[] args) {
