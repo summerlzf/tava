@@ -150,11 +150,11 @@ public final class Utils {
     }
 
     /**
-     * 生成UUID（32位）
+     * 生成UUID
      * @return
      */
     public static String UUID() {
-        return UUID.randomUUID().toString().replaceAll("-", "");
+        return UUID.randomUUID().toString().toUpperCase();
     }
 
 }
