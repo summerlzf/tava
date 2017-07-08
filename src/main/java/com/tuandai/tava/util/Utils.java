@@ -13,11 +13,11 @@ public final class Utils {
     /**
      * <p>检查字符串是否为null或者空串（""）</p>
      * <pre>
-     * CommonUtil.isBlank(null)      = true
-     * CommonUtil.isBlank("")        = true
-     * CommonUtil.isBlank(" ")       = true
-     * CommonUtil.isBlank("bob")     = false
-     * CommonUtil.isBlank("  bob  ") = false
+     * Utils.isBlank(null)      = true
+     * Utils.isBlank("")        = true
+     * Utils.isBlank(" ")       = true
+     * Utils.isBlank("bob")     = false
+     * Utils.isBlank("  bob  ") = false
      * </pre>
      * @param str
      * @return
