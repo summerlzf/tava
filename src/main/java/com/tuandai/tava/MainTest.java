@@ -60,11 +60,13 @@ public class MainTest {
 	}
 
 	public static void main(String[] args) {
-		try {
-			test4();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		String s = ObjectUtil.create(String.class);
+		System.out.println("s: " + s.length());
+//		try {
+//			test4();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
 		System.out.println(Code.B.value());
 	}
 
