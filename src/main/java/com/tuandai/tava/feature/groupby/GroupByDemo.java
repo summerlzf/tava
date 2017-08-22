@@ -45,6 +45,7 @@ public class GroupByDemo {
 	public void test() {
 		List<UserInfo> list = UserInfoFactory.create();
 //		Map<Integer, List<UserInfo>> map = old(list);
+//		Map<Integer, List<UserInfo>> map = new1(list);
 		Map<Integer, List<UserInfo>> map = new2(list);
 		map.forEach((key, val) -> UserInfoFactory.print(val));
 	}
