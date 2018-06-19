@@ -17,7 +17,7 @@ import java.util.function.Consumer;
 public class MainTest {
 	
 	public static void test1() {
-		Arrays.asList("1", "2", "3").forEach((e) -> System.out.println(e));
+		Arrays.asList("1", "2", "3").forEach(System.out::println);
 		Arrays.asList("1", "2", "3").forEach(new Consumer<String>() {
 
 			@Override
