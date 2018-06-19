@@ -1,9 +1,9 @@
-package com.tuandai.tava;
+package com.tuandai.tava.helper;
+
+import com.tuandai.tava.function.MapConsumer;
 
 import java.util.Map;
 import java.util.Map.Entry;
-
-import com.tuandai.tava.function.MapConsumer;
 
 public class MapHelper<K, V> {
 	

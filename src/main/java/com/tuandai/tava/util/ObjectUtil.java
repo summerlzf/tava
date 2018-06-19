@@ -1,4 +1,4 @@
-package com.tuandai.tava;
+package com.tuandai.tava.util;
 
 public class ObjectUtil {
 
