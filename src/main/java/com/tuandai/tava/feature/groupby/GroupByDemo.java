@@ -15,8 +15,7 @@ import java.util.stream.Collectors;
  */
 public class GroupByDemo {
 
-	public Map<Integer, List<UserInfo>> old() {
-		List<UserInfo> list = UserInfoFactory.create();
+	public Map<Integer, List<UserInfo>> old(List<UserInfo> list) {
 		Map<Integer, List<UserInfo>> map = new HashMap<>();
 		for (UserInfo vo : list) {
 			List<UserInfo> vos = map.get(vo.getGender());
@@ -29,8 +28,7 @@ public class GroupByDemo {
 		return map;
 	}
 
-	public Map<Integer, List<UserInfo>> new1() {
-		List<UserInfo> list = UserInfoFactory.create();
+	public Map<Integer, List<UserInfo>> new1(List<UserInfo> list) {
 		Map<Integer, List<UserInfo>> map = new HashMap<>();
 		for (UserInfo vo : list) {
 			List<UserInfo> vos = map.computeIfAbsent(vo.getGender(), k -> new ArrayList<>());
@@ -39,15 +37,16 @@ public class GroupByDemo {
 		return map;
 	}
 
-	public Map<Integer, List<UserInfo>> new2() {
-		List<UserInfo> list = UserInfoFactory.create();
+	public Map<Integer, List<UserInfo>> new2(List<UserInfo> list) {
 		return list.stream().collect(Collectors.groupingBy(UserInfo::getGender));
 	}
 
 	@Test
 	public void test() {
-//		Map<Integer, List<UserInfo>> map = old();
-		Map<Integer, List<UserInfo>> map = new2();
+		List<UserInfo> list = UserInfoFactory.create();
+//		Map<Integer, List<UserInfo>> map = old(list);
+//		Map<Integer, List<UserInfo>> map = new1(list);
+		Map<Integer, List<UserInfo>> map = new2(list);
 		map.forEach((key, val) -> UserInfoFactory.print(val));
 	}
 }
