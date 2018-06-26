@@ -1,12 +1,15 @@
 package com.tuandai.tava.practise;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
  * Created by liuzifeng on 2018/6/20.
  */
 public class MainBox {
+
+	private CodeService codeService = new CodeService();
 
 	/** 直接使用String的+号进行字符串拼接（效率低） */
 	private static void stringConcat1(int n) {
@@ -28,14 +31,19 @@ public class MainBox {
 		System.out.println("stringConcat2: " + (System.currentTimeMillis() - l));
 	}
 
+	public boolean match(int mycode) {
+		int code = codeService.getCode();
+		return code > 0 && code == mycode;
+	}
+
 	public static void main(String[] args) {
-		List<String> list = new ArrayList<>();
-		list.add("1");
-		list.add("2");
-		list.add("3");
 
-		list.removeIf(e -> "1".equals(e) || "2".equals(e));
+		String[] a = {"1", "2", "3"};
 
-		System.out.println(list);
+		List<String> list1 = Arrays.asList(a);
+		list1.remove("2"); // 抛出 UnsupportedOperationException 异常
+
+		List<String> list2 = new ArrayList<>(Arrays.asList(a));
+		list2.remove("2");
 	}
 }
