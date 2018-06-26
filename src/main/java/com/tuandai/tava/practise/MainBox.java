@@ -1,5 +1,6 @@
 package com.tuandai.tava.practise;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -38,12 +39,17 @@ public class MainBox {
 
 	public static void main(String[] args) {
 
-		String[] a = {"1", "2", "3"};
+		double x = 0.1, y = 0.2;
+		System.out.println(x + y); // 0.30000000000000004
 
-		List<String> list1 = Arrays.asList(a);
-		list1.remove("2"); // 抛出 UnsupportedOperationException 异常
+		BigDecimal i = BigDecimal.valueOf(0.1), j = BigDecimal.valueOf(0.2);
+		System.out.println(i.add(j)); // 0.3
 
-		List<String> list2 = new ArrayList<>(Arrays.asList(a));
-		list2.remove("2");
+		BigDecimal a = new BigDecimal(1.2);
+		BigDecimal b = new BigDecimal("1.2");
+		BigDecimal c = BigDecimal.valueOf(1.2);
+		System.out.println(a); // 1.1999999999999999555910790149937383830547332763671875
+		System.out.println(b); // 1.2
+		System.out.println(c); // 1.2
 	}
 }
