@@ -1,9 +1,6 @@
 package com.tuandai.tava.practise;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * Created by liuzifeng on 2018/6/20.
@@ -37,8 +34,7 @@ public class MainBox {
 		return code > 0 && code == mycode;
 	}
 
-	public static void main(String[] args) {
-
+	public static void testDecimal() {
 		double x = 0.1, y = 0.2;
 		System.out.println(x + y); // 0.30000000000000004
 
@@ -51,5 +47,12 @@ public class MainBox {
 		System.out.println(a); // 1.1999999999999999555910790149937383830547332763671875
 		System.out.println(b); // 1.2
 		System.out.println(c); // 1.2
+	}
+
+	public static void main(String[] args) {
+
+		System.out.println(System.getProperty("sun.boot.class.path"));
+		System.out.println(System.getProperty("sun.java.class.path"));
+		System.out.println(System.getProperty("java.class.path"));
 	}
 }
