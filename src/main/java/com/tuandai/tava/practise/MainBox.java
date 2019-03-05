@@ -1,6 +1,9 @@
 package com.tuandai.tava.practise;
 
+import com.sun.nio.zipfs.ZipInfo;
+
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 /**
  * Created by liuzifeng on 2018/6/20.
@@ -51,8 +54,15 @@ public class MainBox {
 
 	public static void main(String[] args) {
 
-		System.out.println(System.getProperty("sun.boot.class.path"));
-		System.out.println(System.getProperty("sun.java.class.path"));
-		System.out.println(System.getProperty("java.class.path"));
+		System.out.println(System.getProperty("sun.boot.class.path")); // BootstrapClassLoader
+		System.out.println(System.getProperty("java.ext.dirs")); // ExtClassLoader
+		System.out.println(System.getProperty("java.class.path")); // AppClassLoader
+
+		ClassLoader cl = User.class.getClassLoader(), cl1 = ZipInfo.class.getClassLoader();
+		System.out.println(cl);
+		System.out.println(cl.getParent());
+		System.out.println(cl1);
+		System.out.println(cl1.getParent());
+		System.out.println(LocalDateTime.class.getClassLoader());
 	}
 }
